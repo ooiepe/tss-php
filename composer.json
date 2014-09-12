@@ -1,0 +1,10 @@
+{
+    "name": "OOI EPE Time Series Service",
+    "require": {
+        "cakephp/cakephp": "2.5.*",
+        "slywalker/boost_cake": "*"
+    },
+    "config": {
+        "vendor-dir": "Vendor/"
+    }
+}
