@@ -35,7 +35,7 @@
     <p>Returns a json array of all networks</p>
     
     <h3>Network Details</h3>
-    <p>Example: <?php echo $this->html->link('/networks/ndbc',array('controller'=>'networks','action'=>'view','ndbc'))?></p>
+    <p>Example: <?php echo $this->html->link('/networks/view/ndbc',array('controller'=>'networks','action'=>'view','ndbc'))?></p>
     <p>Details for the specified network, given as /networks/(name).</p>
     <p>Returns a json array of the selected network.</p>        
   </div>
@@ -47,7 +47,7 @@
     <p>Returns a json array of all parameters</p>
     
     <h3>Parameter Details</h3>
-    <p>Example: <?php echo $this->html->link('/parameters/air_temperature',array('controller'=>'parameters','action'=>'view','air_temperature'))?></p>
+    <p>Example: <?php echo $this->html->link('/parameters/view/air_temperature',array('controller'=>'parameters','action'=>'view','air_temperature'))?></p>
     <p>Details for the specified parameter, given as /parameters/(name).</p>
     <p>Returns a json array of the selected parameter.</p>        
   </div>
@@ -59,12 +59,12 @@
     <p>Returns a geojson array of all stations.</p>
     
     <h3>Station Details</h3>
-    <p>Example: <?php echo $this->html->link('/stations/ndbc/44025',array('controller'=>'stations','action'=>'ndbc/44025'))?></p>
+    <p>Example: <?php echo $this->html->link('/stations/view/ndbc/44025',array('controller'=>'stations','action'=>'view','ndbc','44025'))?></p>
     <p>Details for the specified station, given as /stations/(network)/(name).  (network) should be NDBC or CO-OPS.  (name) is the station's name, which can be found in the station listing.</p>
     <p>Returns a json array of the selected station.</p>
     
     <h3>Station Search</h3>
-    <p>Example: <?php echo $this->html->link('/stations/search?networks=CO-OPS&parameters=salinity&location=-77,35,-69,42&start_time=1&end_time=now',array('controller'=>'stations','action'=>'search','?networks=CO-OPS&parameters=salinity&location=-77,35,-69,42&start_time=1&end_time=now'))?></p>
+    <p>Example: <?php echo $this->html->link('/stations/search?networks=CO-OPS&parameters=salinity&location=-77,35,-69,42&start_time=1&end_time=now',array('controller'=>'stations','action'=>'search','?'=>array('networks'=>'CO-OPS','parameters'=>'salinity','location'=>'-77,35,-69,42','start_time'=>'1','end_time'=>'now')))?></p>
     <p>Search for stations within the specified criteria.</p>
     <p>Optional parameters:</p>
     <ul>
