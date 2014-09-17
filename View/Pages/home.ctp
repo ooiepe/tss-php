@@ -2,12 +2,7 @@
 <h1>EPE Time-Series Service</h1>
 <p><em>Access oceanographic data and information the easy way.</em></p>
 
-<p>This server provides an easy way to access information and data from a number of popular oceanographic web services.  It was developed to support the educational visualization tools of the Ocean Observatories Initiative (OOI) <a href="http://education.oceanobservatories.org">Ocean Education Portal</a>.</p>
-<p>With the Time-Series API, you can retrieve station information and data from a number of popular oceanographic web services.  The following services are currently supported: </p>
-<ul>
-  <li><a href="http://dods.ndbc.noaa.gov/">NDBC DODS</a></li>
-  <li><a href="http://opendap.co-ops.nos.noaa.gov/ioos-dif-sos/">NOAA CO-OPS SOS (in development)</a></li>
-</ul>
+<p>This server provides an easy way to access station information and data from a number of popular oceanographic data providers, including  <a href="http://dods.ndbc.noaa.gov/">NDBC DODS</a>, and <a href="http://opendap.co-ops.nos.noaa.gov/ioos-dif-sos/">NOAA CO-OPS SOS (in development)</a>.  It was developed to support the educational visualization tools of the Ocean Observatories Initiative (OOI) <a href="http://education.oceanobservatories.org">Ocean Education Portal</a>.  Use the menu below to find more about the different services available through this API.</p>
 
 <hr>
 
@@ -83,10 +78,10 @@
     <p>Example: <?php echo $this->html->link('/timeseries?network=CO-OPS&station=8635750&parameter=air_temperature&start_time=1&end_time=2013-07-01',array('controller'=>'timeseries','action'=>'?network=CO-OPS&station=8635750&parameter=air_temperature&start_time=1&end_time=2013-07-01'))?></p>
     
     <p>Request time-series data for a specific station and parameter over the specified time range.</p>
-    <p>Optional parameters:</p>
+    <p>Required parameters:</p>
     <ul>
       <li><strong>network</strong>: should be NDBC or CO-OPS</li>
-      <li><strong>station</strong>: is the station's name, which can be found in the station listing</li>
+      <li><strong>station</strong>: is the station's name/id, which can be found in the station listing</li>
       <li><strong>parameter</strong>: desired parameter (currently, only one request at a time is supported)</li>
       <li><strong>start_time</strong>: Either 0000-00-00T00:00Z or number of days before end_time</li>
       <li><strong>end_time</strong>: Either 0000-00-00T00:00Z or 'now'.  Note, both start_time and end_time must be specified if either is given.</li>

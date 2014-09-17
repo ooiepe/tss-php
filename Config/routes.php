@@ -37,4 +37,4 @@
 /**
  * Add JSON Routing 
  */
-  Router::parseExtensions('json');
+  Router::parseExtensions('json','xml','csv');
