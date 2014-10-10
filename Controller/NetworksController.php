@@ -52,7 +52,7 @@ class NetworksController extends AppController {
 			throw new NotFoundException(__('Invalid network'));
 		}
 		$this->set('network', $network);
-		$this->set('_serialize', array('network'));
+		//$this->set('_serialize', array('network'));
 	}
 
 }

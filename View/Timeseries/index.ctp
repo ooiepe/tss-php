@@ -1,4 +1,15 @@
 <div class="stations index">
+  <?php echo $this->Html->link('CSV Format', array(
+    'controller'=>'timeseries',
+    'action'=>'index.csv',
+    '?'=>array(
+      'network' => $r_network,
+      'station' => $r_station,
+      'parameter' => $r_parameter,
+      'start_time' => $start_time,
+      'end_time' => $end_time,
+    )), array('class'=>'btn btn-primary pull-right')); ?>
+
 
 	<h2><?php echo strtoupper($station['Station']['network_name']) ?> 
 	  <?php echo $station['Station']['name'] ?> 

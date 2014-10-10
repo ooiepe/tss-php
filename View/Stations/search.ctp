@@ -1,5 +1,13 @@
 <div class="stations index">
-  <?php echo $this->Html->link('GeoJSON Format', '/stations.json', array('class'=>'btn btn-primary pull-right')); ?>
+  <?php echo $this->Html->link('GeoJSON Format', array(
+    'action'=>'search.json',
+    '?'=>array(
+      'networks' => $r_networks,
+      'parameters' => $r_parameters,
+      'location' => $r_location,
+      'start_time' => $r_start_time,
+      'end_time' => $r_end_time,
+    )), array('class'=>'btn btn-primary pull-right')); ?>
 
 	<h2><?php echo __('Stations'); ?></h2>
 	<table class="table table-striped table-hover table-condensed">

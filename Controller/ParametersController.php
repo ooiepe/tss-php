@@ -52,7 +52,7 @@ class ParametersController extends AppController {
 			throw new NotFoundException(__('Invalid parameter'));
 		}
 		$this->set('parameter', $parameter);
-		$this->set('_serialize', array('parameter'));
+		//$this->set('_serialize', array('parameter'));
 	}
 
 

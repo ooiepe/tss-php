@@ -59,6 +59,10 @@ class TimeseriesController extends AppController {
     if (!$end_time) {
 			throw new BadRequestException(__('Missing parameter: end_time'));
 		}
+		
+		// Set request variables for view to use
+    $this->set(compact('r_network','r_station','r_parameter','start_time','end_time'));
+
     
     // Look up Station, Parameter and Sensor
 	  $station = $this->Station->find('first',array(
@@ -129,7 +133,8 @@ class TimeseriesController extends AppController {
 	    $data = $this->Data->find('all',array(
 	      'fields'=>array('id','date_time','value'),
 	      'conditions'=>$conditions,
-	      'order'=>array('date_time'=>'asc'),));
+	      'order'=>array('date_time'=>'asc')
+      ));
 	  }
 		$this->set(compact('data','station','parameter'));
 		$this->set('_serialize', 'data');

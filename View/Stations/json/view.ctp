@@ -1,7 +1,7 @@
 <?php 
 $output['Station'] = array(
     "id"=>$station['Station']['id'],
-    "network_name"=> $station['Station']['network_name'],
+    "network"=> $station['Station']['network_name'],
     "name"=> $station['Station']['name'],
     "description"=> $station['Station']['description'],
     "longitude"=> $station['Station']['longitude'],
@@ -10,14 +10,14 @@ $output['Station'] = array(
     "end_time"=> $station['Station']['end_time'],
     "info_url"=> $station['Station']['info_url'],
     "image_url"=> $station['Station']['image_url'],
-    "network_name"=> $station['Station']['network_name'],
+    "modified"=> $station['Station']['modified'],
     "parameters"=>array()
     );
 foreach($station['Sensor'] as & $sensor) {
   $output['Station']['parameters'][] = array(
-        "id"=>$sensor['id'],
+        //"id"=>$sensor['id'],
         "parameter_id"=>$sensor['parameter_id'],
-        "parameter_name"=>$sensor['Parameter']['name'],
+        "name"=>$sensor['Parameter']['name'],
         "depth"=>$sensor['depth'],  
         "active"=>$sensor['active']
   );
