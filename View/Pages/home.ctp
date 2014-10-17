@@ -88,7 +88,7 @@
       <li><strong>parameter</strong>: desired parameter (currently, only one request at a time is supported)</li>
       <li><strong>start_time</strong>: Either a formatted data/time (0000-00-00T00:00Z or 0000-00-00) or the number of days before end_time</li>
       <li><strong>end_time</strong>: Either a formatted date/time or 'now'.  Note, both start_time and end_time must be specified if either is given.</li>
-      <li><strong>type</strong>: (optional): raw (default)</li>
+      <li><strong>type</strong>: (optional): raw (default), day (daily average), month (monthly average)</li>
     </ul>
     <p><em>Returns a CSV file of time and observed values.</em></p>
   </div>

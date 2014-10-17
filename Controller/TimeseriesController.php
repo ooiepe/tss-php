@@ -59,6 +59,7 @@ class TimeseriesController extends AppController {
     if (!$end_time) {
 			throw new BadRequestException(__('Missing parameter: end_time'));
 		}
+    $r_type = $this->request->query('type');
 		
 		// Set request variables for view to use
     $this->set(compact('r_network','r_station','r_parameter','start_time','end_time'));
@@ -123,15 +124,30 @@ class TimeseriesController extends AppController {
 	  if ($end_time) {
   	  $conditions['date_time <='] = gmdate('Y-m-d H:i:s',$end_time_raw);
 	  }
+	  $fields = array('id','date_time','value');
 	  
+	  switch ($r_type) {
+  	  case 'month':
+  	    $findtype = 'monthly_average';
+  	    break;
+  	  case 'day':
+  	  	$findtype = 'daily_average';
+  	  	break;
+  	  default:
+  	  	$findtype = 'all';
+  	  	break;
+	  }
+	  	  
 	  // Retrive data
     if (!isset($this->request->params['ext'])) {
+      $this->paginate = array($findtype);
+      $this->paginate['fields'] = $fields;
       $this->paginate['conditions'] = $conditions;
   		$this->Paginator->settings = $this->paginate;	  
   	  $data = $this->Paginator->paginate('Data');
 	  } else {
-	    $data = $this->Data->find('all',array(
-	      'fields'=>array('id','date_time','value'),
+	    $data = $this->Data->find($findtype,array(
+	      'fields'=>$fields,
 	      'conditions'=>$conditions,
 	      'order'=>array('date_time'=>'asc')
       ));
@@ -140,6 +156,7 @@ class TimeseriesController extends AppController {
 		$this->set('_serialize', 'data');
 		
 	}
+
 
 /**
  * readISO8601
@@ -156,8 +173,7 @@ class TimeseriesController extends AppController {
   		$_ts = gmmktime(0,0,0,intval($_matches[2]),intval($_matches[3]),intval($_matches[1]));
   	}
   	return $_ts;
-  }  
-
+  }
 
 
 }

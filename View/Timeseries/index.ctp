@@ -1,3 +1,4 @@
+<?php // pr($data); ?>
 <div class="stations index">
   <?php echo $this->Html->link('CSV Format', array(
     'controller'=>'timeseries',
